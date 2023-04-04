@@ -6,6 +6,20 @@
 </head>
 <body>
     <h1> Mam na imie {{ first_name }} </h1>
-
+    <div>
+        Wiek: {{ age }}
+    </div>
+    <h2>Dzieci</h2>
+    <ul>
+    {% for child in children %}
+        <li>{{ child }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Programuje w:</h2>
+    <ol>
+        {% for language, level in programming_l.items %}
+        <li>{{language}} {{level}}</li>
+        {% endfor %}
+    </ol>
 </body>
 </html>

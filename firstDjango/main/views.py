@@ -12,16 +12,18 @@ def hello(request):
 def some_test(request):
     age = 26
     first_name = 'Michael'
-    parents = ['Mom', 'Dad']
+    children = ['Aniela', 'Rozalia', 'Julian']
     programming_l = {
-        'python' : 'advanced',
-        'sql' : 'beginner',
-        'ml' : 'beginner'
+        'python': 'advanced',
+        'sql': 'beginner',
+        'ml': 'beginner'
     }
     books = set(['Clean code', 'biblia_mysql'])
+
     return render(request, 'main/some_test.html', context={
-        'age' : age,
-        'parents' : parents,
-        'programming_language' : programming_l,
-        'books' : books
+        'age': age,
+        'first_name' : first_name,
+        'children': children,
+        'programming_l': programming_l,
+        'books': books
     })
