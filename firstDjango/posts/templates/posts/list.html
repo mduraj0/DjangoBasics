@@ -10,6 +10,9 @@
         {% for post in posts_list %}
             <li>
                 {{ post }}
+                {% if post.sponsored %}
+                    (Post sponsorowany!)
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

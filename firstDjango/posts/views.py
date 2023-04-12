@@ -22,3 +22,4 @@ def posts_list(request):
     context = {'posts_list': posts}
 
     return render(request, 'posts/list.html', context)
+
