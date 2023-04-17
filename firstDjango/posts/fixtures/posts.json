@@ -1,0 +1,98 @@
+[
+{
+  "model": "posts.post",
+  "pk": 1,
+  "fields": {
+    "title": "First post",
+    "content": "Hello world",
+    "published": false,
+    "created": "2023-02-15T22:18:31.139Z",
+    "modified": "2023-02-15T22:18:31.139Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 2,
+  "fields": {
+    "title": "New_post",
+    "content": "Nic nie wychodzi",
+    "published": true,
+    "created": "2023-02-20T09:26:18.086Z",
+    "modified": "2023-02-20T09:26:18.086Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 3,
+  "fields": {
+    "title": "3ci post",
+    "content": "dalej nic nie umiem",
+    "published": false,
+    "created": "2023-02-20T09:26:25.952Z",
+    "modified": "2023-02-20T09:26:25.952Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "title": "Harry potter",
+    "content": "harry potter content",
+    "published": true,
+    "created": "2023-02-20T09:27:33.981Z",
+    "modified": "2023-02-20T09:27:33.981Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "title": "Harry 321potter",
+    "content": "harry potter231321 content",
+    "published": false,
+    "created": "2023-02-20T09:31:18.525Z",
+    "modified": "2023-02-20T09:31:18.525Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 6,
+  "fields": {
+    "title": "bye friends",
+    "content": "goodbay",
+    "published": false,
+    "created": "2023-02-20T14:47:48.386Z",
+    "modified": "2023-02-20T14:47:48.386Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 7,
+  "fields": {
+    "title": "new_post_2023",
+    "content": "ehehe",
+    "published": false,
+    "created": "2023-02-20T14:50:57.469Z",
+    "modified": "2023-02-20T14:51:10.659Z",
+    "sponsored": false
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 8,
+  "fields": {
+    "title": "Post sponsorowany przez pepsi",
+    "content": "Pierwszy sponsorowany post",
+    "published": true,
+    "created": "2023-04-12T12:31:35.514Z",
+    "modified": "2023-04-12T12:31:35.514Z",
+    "sponsored": true
+  }
+}
+]
