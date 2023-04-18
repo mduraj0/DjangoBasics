@@ -2,15 +2,6 @@ from django.shortcuts import render
 from posts.models import Post
 
 
-# def posts_list(request):
-#     htlm = """<ul>"""
-#     for post in Post.objects.all():
-#         htlm += f'<li>{post}</li>'
-#
-#     htlm += "</ul>"
-#     return HttpResponse(htlm)
-
-
 def post_details(request):
     post = Post.objects.first()
     context = {'post': post}

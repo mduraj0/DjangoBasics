@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from posts.utils import create_posts
 
+
 class Command(BaseCommand):
     help = 'Create fake posts'
 
