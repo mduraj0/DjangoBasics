@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books!!</title>
+</head>
+<body>
+    <h1>List of books:</h1>
+    <ul>
+        {% for book in books_list %}
+            <li>
+            {{ book }}
+                {% if book.available %}
+                    (Book available!)
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
