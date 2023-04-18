@@ -9,7 +9,7 @@
     <ul>
         {% for post in posts_list %}
             <li>
-                {{ post }}
+                <a href="/posts/{{ post.id }}"> {{ post.title }} </a>
                 {% if post.sponsored %}
                     (Post sponsorowany!)
                 {% endif %}
