@@ -2,11 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-# Create your views here.
-
-
 def hello(request):
-    return HttpResponse('Hello world')
+    return render(request, 'main/hello.html')
+
+
+def about(request):
+    return render(request, 'main/about.html')
 
 
 def some_test(request):
@@ -22,7 +23,7 @@ def some_test(request):
 
     return render(request, 'main/some_test.html', context={
         'age': age,
-        'first_name' : first_name,
+        'first_name': first_name,
         'children': children,
         'programming_l': programming_l,
         'books': books

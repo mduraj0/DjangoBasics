@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List of posts</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'posts/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
     <h1> List of posts </h1>
-    <ul>
+    <ul class="list-group">
         {% for post in posts_list %}
-            <li>
+            <li class="list-group-item">
                 <a href="{% url 'posts:details' post.id %}"> {{ post.title }} </a>
                 {% if post.sponsored %}
                     (Post sponsorowany!)
@@ -16,6 +16,4 @@
             </li>
         {% endfor %}
     </ul>
-
-</body>
-</html>
+{% endblock %}
