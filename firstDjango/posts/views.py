@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from posts.models import Post
+from .models import Post
 
 
 def post_details(request, post_id):

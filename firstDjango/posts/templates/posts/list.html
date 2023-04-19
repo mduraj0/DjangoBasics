@@ -9,7 +9,7 @@
     <ul>
         {% for post in posts_list %}
             <li>
-                <a href="/posts/{{ post.id }}"> {{ post.title }} </a>
+                <a href="{% url 'posts:details' post.id %}"> {{ post.title }} </a>
                 {% if post.sponsored %}
                     (Post sponsorowany!)
                 {% endif %}
