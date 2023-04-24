@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books!!</title>
-</head>
-<body>
-    <h1>List of books:</h1>
-    <ul>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link href="{% static 'books/css/style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <h1> List of books </h1>
+    <ul class="list-group">
         {% for book in books_list %}
-            <li>
-            {{ book }}
+            <li class="list-group-item">
+                <a href="{% url 'books:details' book.id %}"> {{ book.title }} </a>
                 {% if book.available %}
-                    (Book available!)
+                    (Book available !)
                 {% endif %}
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
