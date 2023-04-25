@@ -1,5 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.utils.timezone import now, timedelta
+
+
+class CheckAgeMixin:
+    def is_older_than(self, n=1):
+        """Check if created is older than now() - n days """
+        delta = timedelta(days=n)
+        return now() - self.created > delta
+
+
+class Timestamped(models.Model, CheckAgeMixin):
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
 
 
 class Category(models.Model):
@@ -10,12 +25,10 @@ class Category(models.Model):
         return self.name
 
 
-class Post(models.Model):
+class Post(Timestamped):
     title = models.CharField(max_length=250)
     content = models.TextField()
     published = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
     sponsored = models.BooleanField(default=False)
     author = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name="posts")
     tags = models.ManyToManyField("tags.Tag", related_name="posts")

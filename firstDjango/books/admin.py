@@ -2,9 +2,10 @@ from datetime import datetime
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ExportMixin
+from import_export.admin import ImportExportModelAdmin
 from django.utils.translation import gettext_lazy as _
 from django.db.models import Q
-from .models import Book
+from .models import Book, Author
 
 
 class BookResource(resources.ModelResource):
@@ -30,8 +31,13 @@ class YearListFilter(admin.SimpleListFilter):
 
 
 @admin.register(Book)
-class BookAdmin(ExportMixin, admin.ModelAdmin):
-    list_display = ['title', 'publication_year', 'author', 'available']
+class BookAdmin(ImportExportModelAdmin):
+    list_display = ['title', 'publication_year', 'available']
     search_fields = ['title', 'description']
     list_filter = ['publication_year', 'available', YearListFilter]
     resource_class = BookResource
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    pass

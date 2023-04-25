@@ -1,6 +1,6 @@
 from django.contrib import admin
 from import_export import resources
-from import_export.admin import ExportMixin
+from import_export.admin import ImportExportModelAdmin
 from .models import Post, Category
 
 
@@ -10,7 +10,7 @@ class PostResource(resources.ModelResource):
 
 
 @admin.register(Post)
-class PostAdmin(ExportMixin, admin.ModelAdmin):
+class PostAdmin(ImportExportModelAdmin):
     list_display = ['id', 'title', 'created', 'modified', 'published', 'sponsored']
     search_fields = ['title', 'content']
     list_filter = ['published', 'sponsored']

@@ -10,8 +10,10 @@
         {% for book in books_list %}
             <li class="list-group-item">
                 <a href="{% url 'books:details' book.id %}"> {{ book.title }} </a>
-                {% if book.available %}
-                    (Book available !)
+                {% if book.available == True %}
+                    (Dostępna !)
+                {% else %}
+                    (Niedostępna)
                 {% endif %}
             </li>
         {% endfor %}
