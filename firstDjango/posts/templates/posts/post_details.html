@@ -7,4 +7,7 @@
     <div>
         <p> {{ post.content }} </p>
     </div>
+    {% if post.example_file %}
+        <div> Download <a href="{{ post.example_file.url }}">Example</a> </div>
+    {% endif %}
 {% endblock %}
