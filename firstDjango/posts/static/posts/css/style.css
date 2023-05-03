@@ -14,3 +14,9 @@ ul li a {
 ul li a: hover {
     color : #d00149;
 }
+
+.center-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
