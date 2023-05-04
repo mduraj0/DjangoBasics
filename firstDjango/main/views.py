@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from .forms import ContactForm
 
 
 def hello(request):
@@ -28,3 +29,8 @@ def some_test(request):
         'programming_l': programming_l,
         'books': books
     })
+
+
+def contact(request):
+    form = ContactForm()
+    return render(request, "main/contact.html", {'form': form})
