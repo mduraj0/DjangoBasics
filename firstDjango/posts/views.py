@@ -1,5 +1,7 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Post
+from main.forms import PostForm
 
 
 def post_details(request, post_id):
@@ -18,12 +20,15 @@ def posts_list(request):
 
 def add_post_form(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        data = {
-            'title': request.POST['title'],
-            'content': request.POST['content'],
-            'sponsored': request.POST.get('sponsored', False),
-            'published': request.POST.get('published', False),
-            'author': request.user
-        }
-        post = Post.objects.create(**data)
-    return render(request, 'posts/add.html', {})
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.cleaned_data['author'] = request.user
+            post = Post.objects.create(**form.cleaned_data)
+            return HttpResponseRedirect(reverse("posts:add"))
+    else:
+        form = PostForm()
+    return render(
+        request,
+        "posts/add.html",
+        {'form': form}
+    )

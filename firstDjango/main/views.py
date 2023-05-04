@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from .forms import ContactForm
+from .services import send_message
 
 
 def hello(request):
@@ -28,3 +30,14 @@ def some_test(request):
         'programming_l': programming_l,
         'books': books
     })
+
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(data=request.POST)
+        if form.is_valid():
+            send_message(form.cleaned_data)
+    else:
+        form = ContactForm()
+
+    return render(request, "main/contact.html", {'form': form})
