@@ -1,6 +1,16 @@
 {% extends "base.html" %}
+<<<<<<< HEAD
 {% load crispy_forms_tags %}
 {% block title %}Kontakt{% endblock %}
 {% block content %}
 {% crispy form form.helper %}
 {% endblock %}
+=======
+{% block title %} Contact {% endblock %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+{% endblock %}
+>>>>>>> origin/master
