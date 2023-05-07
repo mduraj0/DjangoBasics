@@ -2,5 +2,11 @@
 {% load crispy_forms_tags %}
 {% block title %} Contact {% endblock %}
 {% block content %}
-{% crispy form form.helper %}
+  <form method="POST">
+    {% crispy form %}
+    <button type="submit"
+            class="btn btn-primary">
+      Wyślij
+    </button>
+  </form>
 {% endblock %}

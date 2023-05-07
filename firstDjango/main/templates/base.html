@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,10 +47,10 @@
         <nav>
             <ul class="nav col-md-4 justify-content-end">
                 <li class="nav-item">
-                    <a href="{% url 'main:about' %}" class="nav-link px-2 text-body-secondary">> About </a>
+                    <a href="{% url 'main:about' %}" class="nav-link px-2 text-body-secondary"> About </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{% url 'main:contact' %}" class="nav-link px-2 text-body-secondary">> Contact </a>
+                    <a href="{% url 'main:contact' %}" class="nav-link px-2 text-body-secondary"> Contact </a>
                 </li>
             </ul>
         </nav>
