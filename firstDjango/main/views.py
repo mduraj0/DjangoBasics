@@ -22,7 +22,7 @@ def some_test(request):
         'sql': 'beginner',
         'ml': 'beginner'
     }
-    books = set(['Clean code', 'biblia_mysql'])
+    books = {'Clean code', 'biblia_mysql'}
 
     return render(request, 'main/some_test.html', context={
         'age': age,

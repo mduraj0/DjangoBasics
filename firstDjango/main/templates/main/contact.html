@@ -1,12 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %} Contact {% endblock %}
+
 {% block content %}
-  <form method="POST">
-    {% crispy form %}
-    <button type="submit"
-            class="btn btn-primary">
-      Wyślij
-    </button>
-  </form>
+
+{% crispy form %}
 {% endblock %}
