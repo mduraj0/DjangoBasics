@@ -1,6 +1,7 @@
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, HTML
 from crispy_forms.helper import FormHelper
 from django import forms
+from .models import UserProfile
 
 
 class ContactForm(forms.Form):
@@ -35,3 +36,16 @@ class ContactForm(forms.Form):
             )
         )
         self.helper.add_input(Submit('submit', 'Wyślij'))
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['user', 'bio']
+
+    def __init__(self):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form.method = 'post'
+        self.helper.form_action = 'profile'
+        self.helper.add_input(Submit('submit', 'wyślij'))

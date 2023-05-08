@@ -1,13 +1,19 @@
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, HTML
 from crispy_forms.helper import FormHelper
 from django import forms
+from .models import Post
 
 
 class PostForm(forms.Form):
-    title = forms.CharField(label="Tytuł")
-    content = forms.CharField(widget=forms.Textarea, label="Treść")
-    published = forms.BooleanField(label="Opublikowany")
-    sponsored = forms.BooleanField(label="Sponsorowany")
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'published', 'sponsored']
+        labels ={
+            'title': 'Tytuł',
+            'content': 'Treść',
+            'published': 'Opublikowany',
+            'sponsored': 'Sponsorowany'
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
