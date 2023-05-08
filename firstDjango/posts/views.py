@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from .models import Post
-from main.forms import PostForm
+from .forms import PostForm
 
 
 def post_details(request, post_id):
