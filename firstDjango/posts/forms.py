@@ -16,21 +16,37 @@ class PostForm(forms.Form):
         }
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
+        super().__init__(self, *args, **kwargs)
+        self.helper = FormHelper
         self.helper.form_method = 'post'
         self.helper.form_action = 'contact'
         self.helper.layout = Layout(
-            Fieldset(
-                'Dodaj post',
-                'title',
-                'content',
-                'published',
-                'sponsored',
-                'image'
-            ),
-            ButtonHolder(
-                Submit('submit', 'Dodaj', css_class='btn btn-primary'),
-                css_class="d-flex justify-content-end"
-            )
+            'name',
+            'email',
+            'message',
+            Submit('submit', 'Send')
         )
+
+
+
+
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.helper = FormHelper()
+    #     self.helper.form_method = 'post'
+    #     self.helper.form_action = 'contact'
+    #     self.helper.layout = Layout(
+    #         Fieldset(
+    #             'Dodaj post',
+    #             'title',
+    #             'content',
+    #             'published',
+    #             'sponsored',
+    #             'image'
+    #         ),
+    #         ButtonHolder(
+    #             Submit('submit', 'Dodaj', css_class='btn btn-primary'),
+    #             css_class="d-flex justify-content-end"
+    #         )
+    #     )

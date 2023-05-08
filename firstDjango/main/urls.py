@@ -7,6 +7,6 @@ urlpatterns = [
     path('', hello, name='hello'),
     path('testy', some_test),
     path('about', about, name='about'),
-    path('contact', contact, name='contact'),
-    path('user/<int:user_profile_id>/profile', user_profile, name='userprofile'),
+    path('contact/', contact, name='contact'),
+    path('user/<int:user_profile_id>/profile', user_profile, name='userprofile')
 ]

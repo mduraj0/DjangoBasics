@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from .forms import ContactForm, UserProfileForm
-from . import services
 
 
 def hello(request):

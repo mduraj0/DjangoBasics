@@ -19,6 +19,7 @@ class Book(Timestamped):
     available = models.BooleanField(default=True)
     tags = models.ManyToManyField("tags.Tag", related_name="books")
     authors = models.ManyToManyField(Author, related_name="books")
+    cover = models.ImageField(upload_to="books/covers/%Y/%m/%d", null=True, blank=True)
 
     def __str__(self):
         return f'{self.title} - {self.author}'
