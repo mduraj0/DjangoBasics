@@ -18,7 +18,7 @@ def books_list(request):
 
 
 def add_book(request):
-    form = BookForm
+    form = BookForm()
     if request.method == "POST":
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():

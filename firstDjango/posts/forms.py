@@ -8,7 +8,7 @@ class PostForm(forms.Form):
     class Meta:
         model = Post
         fields = ['title', 'content', 'published', 'sponsored', 'image']
-        labels ={
+        labels = {
             'title': 'Tytuł',
             'content': 'Treść',
             'published': 'Opublikowany',
@@ -16,37 +16,27 @@ class PostForm(forms.Form):
         }
 
     def __init__(self, *args, **kwargs):
-        super().__init__(self, *args, **kwargs)
-        self.helper = FormHelper
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
         self.helper.form_method = 'post'
-        self.helper.form_action = 'contact'
+        self.helper.form_action = 'main:contact'
         self.helper.layout = Layout(
-            'name',
-            'email',
-            'message',
-            Submit('submit', 'Send')
+            Fieldset(
+                'Dane kontaktowe',
+                'email',
+            ),
+            Fieldset(
+                'Zawartość',
+                'title',
+                'content'
+            ),
+            Fieldset(
+                'Dodatkowe',
+                HTML("Zaznacz jeśli chcesz by wysłać kopię wiadomości do Ciebie"),
+                'send_to_me',
+            ),
+            ButtonHolder(
+                Submit('submit', 'Dodaj', css_class='btn btn-primary'),
+                css_class="d-flex justify-content-end"
+            )
         )
-
-
-
-
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     self.helper = FormHelper()
-    #     self.helper.form_method = 'post'
-    #     self.helper.form_action = 'contact'
-    #     self.helper.layout = Layout(
-    #         Fieldset(
-    #             'Dodaj post',
-    #             'title',
-    #             'content',
-    #             'published',
-    #             'sponsored',
-    #             'image'
-    #         ),
-    #         ButtonHolder(
-    #             Submit('submit', 'Dodaj', css_class='btn btn-primary'),
-    #             css_class="d-flex justify-content-end"
-    #         )
-    #     )
