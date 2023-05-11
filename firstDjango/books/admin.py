@@ -35,6 +35,7 @@ class BookAdmin(ImportExportModelAdmin):
     list_display = ['title', 'publication_year', 'available']
     search_fields = ['title', 'description']
     list_filter = ['publication_year', 'available', YearListFilter]
+    autocomplete_fields = ['tags']
     resource_class = BookResource
 
 

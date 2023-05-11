@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from django.core.paginator import Paginator
 from .models import Post
 from .forms import PostForm
 
@@ -15,7 +16,14 @@ def post_details(request, post_id):
 
 def posts_list(request):
     posts = Post.objects.filter(published=True)
-    context = {'posts_list': posts}
+    q = request.GET.get("q")
+    if q:
+        posts = posts.filter(title__icontains=q)
+
+    paginator = Paginator(posts, 10)
+    page_number = request.GET.get('page')
+    posts_list = paginator.get_page(page_number)
+    context = {'posts_list': posts_list}
     return render(request, 'posts/list.html', context)
 
 
