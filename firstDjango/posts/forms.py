@@ -1,40 +1,42 @@
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, HTML
 from crispy_forms.helper import FormHelper
-from django.contrib import admin
-from django.contrib.admin.widgets import AutocompleteSelectMultiple
 from django import forms
-from dal import autocomplete
 from .models import Post
-from tags.models import Tag
 
 
-class PostForm(forms.ModelForm):
-    tags = forms.ModelMultipleChoiceField(
-        queryset=Tag.objects.all(),
-        widget=autocomplete.ModelSelect2Multiple(url="tags:tag-autocomplete")
-    )
-
+class PostForm(forms.Form):
     class Meta:
         model = Post
-        fields = ['title', 'content', 'published', 'sponsored', 'image', 'tags']
+        fields = ['title', 'content', 'published', 'sponsored', 'image']
+        labels = {
+            'title': 'Tytuł',
+            'content': 'Treść',
+            'published': 'Opublikowany',
+            'sponsored': 'Sponsorowany'
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
+        self.helper = FormHelper(self)
         self.helper.form_method = 'post'
-        self.helper.form_action = 'contact'
+        self.helper.form_action = 'main:contact'
         self.helper.layout = Layout(
             Fieldset(
-                'Add post',
+                'Dane kontaktowe',
+                'email',
+            ),
+            Fieldset(
+                'Zawartość',
                 'title',
-                'content',
-                'published',
-                'sponsored',
-                'image',
-                'tags',
+                'content'
+            ),
+            Fieldset(
+                'Dodatkowe',
+                HTML("Zaznacz jeśli chcesz by wysłać kopię wiadomości do Ciebie"),
+                'send_to_me',
             ),
             ButtonHolder(
-                Submit('submit', 'Add', css_class='btn btn-primary'),
+                Submit('submit', 'Dodaj', css_class='btn btn-primary'),
                 css_class="d-flex justify-content-end"
             )
         )
