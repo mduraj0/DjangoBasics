@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'books.apps.BooksConfig',
     'main.apps.MainConfig',
     'tags.apps.TagsConfig',
+    'register.apps.RegisterConfig',
 ]
 
 MIDDLEWARE = [

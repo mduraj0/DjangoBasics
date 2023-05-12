@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, authenticate, login
 from .forms import ContactForm, UserProfileForm
 
 
@@ -67,3 +67,13 @@ def user_profile(request, user_id):
             form.helper.inputs = []
 
     return render(request, "main/userprofile.html", {"form": form})
+
+
+def my_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+    else:
+        print('invalid loign')
