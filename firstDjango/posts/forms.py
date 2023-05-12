@@ -4,7 +4,7 @@ from django import forms
 from .models import Post
 
 
-class PostForm(forms.Form):
+class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'published', 'sponsored', 'image']
@@ -19,7 +19,7 @@ class PostForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
         self.helper.form_method = 'post'
-        self.helper.form_action = 'main:contact'
+        self.helper.form_action = 'posts:add'
         self.helper.layout = Layout(
             Fieldset(
                 'Dane kontaktowe',
