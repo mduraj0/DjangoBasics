@@ -16,7 +16,7 @@ class Book(Timestamped):
     title = models.CharField(max_length=200)
     description = models.TextField()
     publication_year = models.IntegerField()
-    available = models.BooleanField(default=True)
+    available = models.BooleanField(default=False)
     tags = models.ManyToManyField("tags.Tag", related_name="books")
     authors = models.ManyToManyField(Author, related_name="books")
     cover = models.ImageField(upload_to="books/covers/%Y/%m/%d", null=True, blank=True)

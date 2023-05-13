@@ -1,22 +1,24 @@
+body {
+    background-color: lightblue;
+}
+
 ul {
-    list-style-type : none;
+    list-style-type: none;
 }
 
 ul li:nth-child(odd) {
-    background-color : #f2f2f2;
+    background-color: skyblue;
 }
 
-ul li a {
-    color : #000;
-    text-decoration : none;
+ul li:nth-child(odd) a {
+    background-color: lightpink;
 }
 
-ul li a: hover {
-    color : #d00149;
-}
 
-.center-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+li:nth-child(odd) a {background-color:lavender;}
+.select2-selection_rendered {border:1px solid lightgray}
+
+.select2-container {
+    min-width: 15em !important;
+    width: 100% !important ;
 }

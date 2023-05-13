@@ -8,19 +8,18 @@
 {% endblock %}
 
 {% block header %}
-    <h3>Dodawanie nowgo posta:</h3>
+    <p><h3>Edytowanie posta:</h3></p>
 {% endblock %}
 
-{% block title %}  Nowy post {% endblock %}
+{% block title %}  Edytuj post: {% endblock %}
 
 {% block content %}
-    <form method = "POST" action="" enctype="multipart/form-data">
+    <form method = "POST">
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit"
     class = "btn btn-primary">Wyślij</button>
     </form>
-{#    {% crispy form form.helper %}#}
 {% endblock %}
 
 {% block additional_scripts %}

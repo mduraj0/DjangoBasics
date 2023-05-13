@@ -17,23 +17,19 @@ class PostForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper(self)
+        self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = 'posts:add'
+        self.helper.form_action = 'post:add'
         self.helper.layout = Layout(
             Fieldset(
-                'Dane kontaktowe',
-                'email',
-            ),
-            Fieldset(
-                'Zawartość',
+                'Dodaj post',
                 'title',
-                'content'
-            ),
-            Fieldset(
-                'Dodatkowe',
-                HTML("Zaznacz jeśli chcesz by wysłać kopię wiadomości do Ciebie"),
-                'send_to_me',
+                'content',
+                'published',
+                'sponsored',
+                'image',
+                'tags',
+                'categories',
             ),
             ButtonHolder(
                 Submit('submit', 'Dodaj', css_class='btn btn-primary'),
