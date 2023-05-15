@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'tags.apps.TagsConfig',
     'register.apps.RegisterConfig',
-    'galleries.apps.GalleriesConfing',
+    'galleries.apps.GalleriesConfig',
 ]
 
 MIDDLEWARE = [
