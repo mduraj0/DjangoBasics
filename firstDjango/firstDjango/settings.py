@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'bootstrap4',
+    'sorl.thumbnail',
+
     'posts.apps.PostsConfig',
     'books.apps.BooksConfig',
     'main.apps.MainConfig',
     'tags.apps.TagsConfig',
     'register.apps.RegisterConfig',
+    'galleries.apps.GalleriesConfing',
 ]
 
 MIDDLEWARE = [

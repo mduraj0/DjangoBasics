@@ -1,3 +1,4 @@
+from django.contrib.auth.models import Permission
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
@@ -8,8 +9,10 @@ def register(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-        return redirect(reverse('/'))
+            user = form.save()
+            permission = Permission.objects.get(name='Can add tag')
+            user.user_permissions.add(permission)
+        return redirect(reverse('main:hello'))
 
     else:
         form = RegisterForm()
