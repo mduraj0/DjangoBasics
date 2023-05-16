@@ -6,3 +6,6 @@ from .models import UserProfile
 class UserProfileAdmin(admin.ModelAdmin):
     pass
 
+
+# admin.site.site_header = "My panel administration DURAJ"
+# admin.site.site_title = "DURAJ ADMIN Portal"
