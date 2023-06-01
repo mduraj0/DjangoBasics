@@ -44,7 +44,7 @@ source myenv/bin/activate
 pip install django
 
 # Clone the repository
-git clone https://github.com/your-username/django-course.git](https://github.com/mduraj0/DjangoBasics.git
+git clone https://github.com/mduraj0/DjangoBasics.git
 
 # Navigate to the project directory
 cd firstDjango
